@@ -1,37 +1,25 @@
 'use strict'
 
-/* document.addEventListener("DOMContentLoaded", function () {
-	let inputElement = document.getElementById('input')
+document.addEventListener("DOMContentLoaded", function () {
+	let inputElement = document.getElementById('input');
+
+	function changeBrowserTitle(newTitle) {
+		document.title = newTitle;
+	}
 
 	inputElement.addEventListener('input', function () {
-		event.preventDefault()
-		let value = inputElement.value
+		let value = inputElement.value;
+		console.log(value);
+
 		chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-			let tab = tabs[0]
-			tab.title = value
-			//console.log(value)
+			let tab = tabs[0];
+			chrome.scripting
+				.executeScript({
+					target: { tabId: tab.id, allFrames: true },
+					function: changeBrowserTitle,
+					args: [value],
+				})
+				.then(() => console.log("script injected"))
 		});
 	});
-})
- */
-
-document.addEventListener("DOMContentLoaded", function () {
-    let inputElement = document.getElementById('input');
-
-    inputElement.addEventListener('input', function () {
-        let value = inputElement.value;
-        console.log(value);
-        // Send a message to the content script to change the tab title
-        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-            let tab = tabs[0];
-            chrome.scripting.executeScript({
-                target: { tabId: tab.id },
-                function: (newTitle) => {
-                    document.title = newTitle;
-                },
-                args: [value]
-            });
-        });
-    });
 });
-
