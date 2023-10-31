@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "RenameTabs - Best Rename browser tabs",
+    "version": "0.0.1",
+    "description": "Change tabs title's and manages your tab's efficiently.",
+    "permissions": [
+        "scripting",
+        "activeTab"
+    ],
+    "action": {
+        "default_popup": "index.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "script.js"
+            ]
+        }
+    ]
+}
