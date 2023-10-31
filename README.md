@@ -22,7 +22,7 @@ To get started with the Chrome Superpowers Playground, follow these simple steps
 
 1. **Clone the Repository:**
 ```
-git clone https://github.com/yourusername/chrome-superpowers-playground.git
+https://github.com/thejunghare/chrome-web-extension.git
 ```
 
 
