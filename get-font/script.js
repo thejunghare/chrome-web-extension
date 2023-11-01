@@ -1,25 +1,25 @@
 'use strict'
 
-document.addEventListener("DOMContentLoaded", function () {
-	let inputElement = document.getElementById('input');
+const getfont = (element, property) => {
+    return window
+        .getComputedStyle(element, null)
+        .getPropertyValue(property)
+}
 
-	function changeBrowserTitle(newTitle) {
-		document.title = newTitle;
-	}
+const getId = (obj) => {
+    return obj.id
+}
 
-	inputElement.addEventListener('input', function () {
-		let value = inputElement.value;
-		console.log(value);
+addEventListener("mouseover", (event) => {
+    console.log(getId(event.target));
+})
 
-		chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-			let tab = tabs[0];
-			chrome.scripting
-				.executeScript({
-					target: { tabId: tab.id, allFrames: true },
-					function: changeBrowserTitle,
-					args: [value],
-				})
-				.then(() => console.log("script injected"))
-		});
-	});
-});
+addEventListener("mouseover", (event) => {
+    //console.log(getfont(getId(event.target), "font-family")) // problem with this is I am passig id  instead of element
+
+    const element = event.target
+    const id = getId(element)
+    if (id){
+        console.log(getfont(element, "font-family"))
+    }
+})
