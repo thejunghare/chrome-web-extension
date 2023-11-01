@@ -1,4 +1,5 @@
 'use strict'
+
 document.addEventListener("DOMContentLoaded", function () {
     const getfont = (element, property) => {
         return window
@@ -11,22 +12,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const addTooltip = (element) => {
-        console.log(`added`);
         element.setAttribute("data-bs-toggle", "tooltip")
         element.setAttribute("data-bs-placement", "bottom")
         element.setAttribute("data-bs-title", "Tooltip on top")
         new bootstrap.Tooltip(element)
+        console.log(`Tooltip added`)
 
         // Remove the tooltip when the mouse leaves the element
-        element.addEventListener("mouseleave", () => {
-            console.log(`Removed`);
-            // Remove the attributes to disable the tooltip
+        element.addEventListener("mouseleave", (event) => {
+            const element = event.target
+
             element.removeAttribute("data-bs-toggle");
             element.removeAttribute("data-bs-placement");
             element.removeAttribute("data-bs-title");
+            
+            new bootstrap.Tooltip(element);
+            /* const element = event.target
+            const tooltip = bootstrap.Tooltip.getInstance(element); */
+            // tooltip.dispose() // --> not working
+            console.log(`Removed`)
 
-            // Dispose of the tooltip
-           // tooltip.dispose();
         })
     }
 
@@ -42,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const id = getId(element)
         if (id) {
             addTooltip(element)
-            console.log(getfont(element, "font-family"))
+            //console.log(getfont(element, "font-family"))
         }
     })
 })
