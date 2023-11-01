@@ -40,19 +40,11 @@ In this repository, you'll discover a range of tools and add-ons that cater to d
 
 ### 1. Productivity Boosters
 
-- **AutoTab Organizer:** Tired of a cluttered tab bar? This extension automatically organizes your tabs into groups, making it easier to manage your browsing sessions.
+- **Rename Browser Tabs:** Do you know which tab is which? This extension will rename your tabs, making it easier to manage your browsing sessions.
 
-- **SuperSearch:** Supercharge your search experience with this enhanced search bar. It provides instant results and suggestions, saving you time on every search.
-
-- **Focus Mode:** Need to concentrate? Activate the Focus Mode to block distracting websites for a set period, boosting your productivity.
-
-### 2. Quirky Browser Enhancements
-
-- **Emoji Surprises:** Add a touch of fun to your browsing by replacing text emoticons with emojis. You never know what surprise an emoji might bring to your messages!
-
-- **Mouse Trails:** Bring some whimsy to your mouse cursor by enabling colorful trails as you navigate web pages.
-
-- **Custom New Tab Page:** Personalize your new tab page with custom background images, widgets, and inspiring quotes.
+- **Get Font Info:** Tired of inspecting elements to check what font your favorite website is using? Get all the information on mouseover.
+  
+-  **:**
 
 ## Contributing
 
