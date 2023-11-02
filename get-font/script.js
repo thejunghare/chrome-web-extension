@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return obj.id
     }
 
-    const addTooltip = (element) => {
+    /* const addTooltip = (element) => {
         element.setAttribute("data-bs-toggle", "tooltip")
         element.setAttribute("data-bs-placement", "bottom")
         element.setAttribute("data-bs-title", "Tooltip on top")
@@ -28,12 +28,32 @@ document.addEventListener("DOMContentLoaded", function () {
             
             new bootstrap.Tooltip(element);
             /* const element = event.target
-            const tooltip = bootstrap.Tooltip.getInstance(element); */
+            const tooltip = bootstrap.Tooltip.getInstance(element); 
             // tooltip.dispose() // --> not working
             console.log(`Removed`)
 
         })
-    }
+    } */
+    // solution by @jameshibbard
+    const addTooltip = (element) => {
+        element.setAttribute('data-bs-toggle', 'tooltip');
+        element.setAttribute('data-bs-placement', 'bottom');
+        element.setAttribute('data-bs-title', 'Tooltip on top');
+    
+        const tooltipInstance = new bootstrap.Tooltip(element);
+        tooltipInstance.show();
+        console.log(`Tooltip added`);
+    
+        element.addEventListener('mouseleave', (event) => {
+          const element = event.target;
+    
+          const tooltip = bootstrap.Tooltip.getInstance(element);
+          if (tooltip) {
+            tooltip.dispose();
+          }
+          console.log('Removed');
+        });
+      };
 
 
     addEventListener("mouseover", (event) => {
