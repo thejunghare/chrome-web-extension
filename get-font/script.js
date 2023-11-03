@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const addTooltip = (element) => {
         element.setAttribute('data-bs-toggle', 'tooltip');
         element.setAttribute('data-bs-placement', 'bottom');
-        element.setAttribute('data-bs-title', 'Tooltip on top');
+        element.setAttribute('data-bs-title', getfont(element, "font-family"));
     
         const tooltipInstance = new bootstrap.Tooltip(element);
         tooltipInstance.show();
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
     addEventListener("mouseover", (event) => {
         console.log(getId(event.target));
     })
-
+/* 
     addEventListener("mouseover", (event) => {
         //console.log(getfont(getId(event.target), "font-family")) // problem with this is I am passig id  instead of element
 
@@ -67,7 +67,24 @@ document.addEventListener("DOMContentLoaded", function () {
         const id = getId(element)
         if (id) {
             addTooltip(element)
+            addTooltip((getfont(element, "font-family")))
             //console.log(getfont(element, "font-family"))
         }
-    })
+    }) */
+
+   /*  addEventListener("mouseover", (event) => {
+        const element = event.target;
+        const id = getId(element);
+        if (id) {
+            addTooltip(element, id);
+        }
+    }); */
+
+    addEventListener("mouseover", (event) => {
+        const element = event.target;
+        const font = getfont(element, "font-family");
+        if (font) {
+            addTooltip(element, font);
+        }
+    });
 })
