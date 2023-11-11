@@ -1,7 +1,7 @@
 'use strict'
 
 document.addEventListener 'DOMContentLoaded', ->
-  getProperties = ['font-family', 'font-size', 'font-weight']
+  getProperties = ['color', 'background-color']
 
   getfont = (element, properties) ->
     computedStyle = window.getComputedStyle(element, null)
@@ -12,9 +12,8 @@ document.addEventListener 'DOMContentLoaded', ->
 
     tooltipContent = """
       <div>
-          <p>Font Family: #{computedValues["font-family"]}</p>
-          <p>Font Size: #{computedValues["font-size"]}</p>
-          <p>Font Weight: #{computedValues["font-weight"]}</p>
+          <p>Color: #{computedValues["color"]}</p>
+          <p>Background: #{computedValues["background-color"]}</p>
       </div>
     """
 

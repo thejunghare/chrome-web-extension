@@ -3,7 +3,7 @@
   'use strict';
   document.addEventListener('DOMContentLoaded', function() {
     var addTooltip, getId, getProperties, getfont;
-    getProperties = ['font-family', 'font-size', 'font-weight'];
+    getProperties = ['color', 'background-color'];
     getfont = function(element, properties) {
       var computedStyle, computedValues, i, len, property, tooltipContent;
       computedStyle = window.getComputedStyle(element, null);
@@ -13,9 +13,8 @@
         computedValues[property] = computedStyle.getPropertyValue(property);
       }
       tooltipContent = `<div>
-    <p>Font Family: ${computedValues["font-family"]}</p>
-    <p>Font Size: ${computedValues["font-size"]}</p>
-    <p>Font Weight: ${computedValues["font-weight"]}</p>
+    <p>Color: ${computedValues["color"]}</p>
+    <p>Background: ${computedValues["background-color"]}</p>
 </div>`;
       return tooltipContent;
     };
