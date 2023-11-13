@@ -116,32 +116,4 @@ document.addEventListener("DOMContentLoaded", function () {
             // console.log(getfont(element, getProperties))
         }
     })
-
-    // Initialize Bootstrap tooltips
-    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl);
-    });
 })
-
-// Listen for messages from the extension popup
-chrome.runtime.onMessage.addListener(
-    function (request, sender, sendResponse) {
-        if (request.action === "startHover") {
-            // Start listening for hover events when the user clicks the extension icon
-            addEventListener("mouseover", handleMouseOver);
-        } else if (request.action === "stopHover") {
-            // Stop listening for hover events when the user clicks outside the extension popup
-            removeEventListener("mouseover", handleMouseOver);
-        }
-    }
-);
-
-// Function to handle mouseover events
-function handleMouseOver(event) {
-    const element = event.target;
-    const id = getId(element);
-    if (id) {
-        addTooltip(element);
-    }
-}
